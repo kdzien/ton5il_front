@@ -1,0 +1,25 @@
+<div class="category-panel">
+<h1>{{currentCategory?.name}}</h1>
+<ul>
+  <li>
+    <select [(ngModel)]="currentSort">
+      <option [ngValue]="'up'">Cena rosnąco</option>
+      <option [ngValue]="'down'">Cena malejąco</option>
+    </select>
+  </li>
+  <li (click)="currentViewStyle='1fr'"><i class="fas fa-bars"></i></li>
+  <li (click)="currentViewStyle='1fr 1fr 1fr'"><i class="fas fa-th"></i></li>
+
+</ul>
+</div>
+<div id="products-wrapper" [style.grid-template-columns]='currentViewStyle'>
+  <p *ngIf="products?.length==0">Aktualnie brak produktów w tej kategorii</p>
+  <article class="product" *ngFor="let product of products | orderBy:currentSort" [routerLink] = "['/shop/product', product._id]">
+    <div class="sale">SALE</div>
+    <div class="img"><img src="{{product.img_src}}"/></div>
+    <div class="product-info">
+      <div class="price">${{product.price}}</div>
+      <div class="title">{{product.name}}</div>
+    </div>
+  </article>
+</div>

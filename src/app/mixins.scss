@@ -1,0 +1,20 @@
+@import './variables.scss';
+
+@mixin custom-list(){
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+@mixin custom-font($size, $weight, $color:$text-color, $spacing:0px){
+  font-size:$size;
+  font-weight:$weight;
+  letter-spacing:$spacing;
+  color:$color;
+}
+
+@mixin custom-shadow(){
+  -webkit-box-shadow: 0px 0px 5px 2px rgba(166,166,166,1);
+  -moz-box-shadow: 0px 0px 5px 2px rgba(166,166,166,1);
+  box-shadow: 0px 0px 5px 2px rgba(166,166,166,1);
+}

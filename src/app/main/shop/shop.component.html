@@ -1,0 +1,39 @@
+<!-- <header>
+  <div class="container container-header">
+    <div class="logo"  [routerLink]="['/shop']"><img src="../../../assets/logo.png" /></div>
+  </div> -->
+
+  <!-- <nav class="container-fluid">
+    <ul class="shop-nav">
+      <li>HOME</li>
+      <li>ABOUT</li>
+      <li>TERM OF USE</li>
+      <li>CONTACT</li>
+    </ul>
+  </nav> -->
+
+<!-- </header> -->
+
+<section id="open-basket" (clickOutside)="onClickedOutside($event)">
+  <span class="top-menu"><i (click)="toggleBasket()" class="fas fa-shopping-basket"><span>{{basket_count}}</span></i></span>
+  <section [hidden]="basket_status" id="basket-container" >
+    <div class="no-items" *ngIf="!basket_products || basket_products.length==0">You have no items in your cart</div>
+    <div *ngIf="basket_products?.length>0">
+      <div class="basket-header">You cart</div>
+      <ul>
+        <li *ngFor="let product of basket_products">
+          <div class="cart-image"><img src="{{product.img_src}}"/></div>
+          <div>
+            <span>{{product.name}}</span><br>
+            <span class="price">${{product.price}}</span>
+          </div>
+        </li>
+      </ul>
+      <div class="total-price"><span>Subtotal</span><span>${{total_cost}}</span></div>
+      <a [routerLink]="['/shop/cart']"><button>CHECKOUT</button></a>
+    </div>
+  </section>
+</section>
+<section class="container middle-container">
+  <router-outlet></router-outlet>
+</section>

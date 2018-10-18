@@ -1,0 +1,30 @@
+<section class="row">
+  <a (click)="previousPage()" class="previous-page">Wróć do poprzedniej strony</a>
+  <article class="col-lg-12" id="product">
+  <!-- <i  class="fas fa-arrow-left previous-page"></i> -->
+    <div class="row">
+      <section class="col-lg-4 product-image">
+        <img src="{{product?.img_src}}"/>
+      </section>
+      <section class="col-lg-8 product-info">
+        <h1>{{product?.name | uppercase }}</h1>
+        <p class="price">${{product?.price}}</p>
+        <p>Producer: {{product?.producer}}</p>
+        <p>Condition: {{product?.condition}}</p>
+        <p>Quantity: {{product?.quantity}}</p>
+        <div class="select-wrapper">Qty:
+          <select>
+            <option>1</option>
+          </select>
+        </div>
+        <button (click)="addProduct()">ADD TO CART</button>
+
+        <section class="product-description">
+          <div class="title">DESCRIPTION</div>
+          <div [innerHTML]="product?.description"></div>
+        </section>
+
+      </section>
+    </div>
+  </article>
+</section>

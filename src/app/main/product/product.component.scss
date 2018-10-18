@@ -1,0 +1,65 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+.previous-page{
+  margin-bottom:15px;
+  text-align:center;
+  width:100%;
+  cursor:pointer;
+}
+#product{
+  background-color:white;
+  padding:35px;
+  position:relative;
+
+  .product-description{
+    .title{
+      @include custom-font(23px,600,$text-color,2px);
+      margin:35px 0px 20px 0px;
+    }
+    img{
+      display:none !important;
+    }
+  }
+  .product-info{
+    margin-top:20px;
+    h1{
+      @include custom-font(30px,600,$text-color,1px);
+      margin-bottom:0;
+    }
+    .select-wrapper{
+      margin:12px 0px;
+      select{
+        width:35px;
+      }
+    }
+    button{
+      border:none;
+      padding:12px 45px;
+      background:$first-color;
+      @include custom-font(16px,600,white);
+      display:block;
+      cursor:pointer;
+      &:focus{
+        outline:none;
+      }
+    }
+    p{
+      margin:0;
+      @include custom-font(14px,400,$text-color);
+      span{
+        font-weight:600;
+      }
+      &.price{
+        @include custom-font(19px,500,gray,1px);
+      }
+    }
+  }
+  .product-image{
+    img{
+      display:block;
+      margin:0 auto;
+      width: 100%;
+    }
+  }
+}

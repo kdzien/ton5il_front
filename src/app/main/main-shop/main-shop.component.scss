@@ -1,0 +1,69 @@
+@import '../../variables.scss';
+
+aside{
+  &.col-lg-3{
+    padding-right:0;
+  }
+    #finder{
+      .f-i{
+        display:flex;
+        input,i{
+          background-color:whitesmoke;
+          border:none;
+          &:focus{
+            outline:none;
+          }
+        }
+        input{
+          font-size:12px;
+          padding:4px 10px;
+          width:100%;
+        }
+        button{
+          border: none;
+          background-color: whitesmoke;
+        }
+        i{
+          cursor:pointer;
+          padding:4px 6px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+      }
+    }
+    nav,section{
+      background-color:white;
+      padding:15px;
+      margin-bottom:15px;
+      .aside-header{
+        font-size:14px;
+        font-weight:600;
+        letter-spacing:1px;
+      }
+    }
+    nav{
+    margin-bottom:15px;
+      ul{
+        margin:0;
+        padding:0px;
+        list-style-type:none;
+        font-size:13px;
+        li{
+          &:focus{
+            outline:none;
+          }
+          &:not(:last-child){
+            margin-bottom:5px;
+          }
+          &:hover{
+            cursor:pointer;
+            color:$first-color;
+          }
+          &.active-category{
+            color:$first-color;
+          }
+        }
+      }
+    }
+  }
