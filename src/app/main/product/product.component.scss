@@ -2,9 +2,11 @@
 @import '../../mixins.scss';
 
 .previous-page{
-  margin-bottom:15px;
-  text-align:center;
-  width:100%;
+  position:absolute;
+  left:0px;
+  top:0px;
+  padding:10px;
+  font-size:30px;
   cursor:pointer;
 }
 #product{
@@ -22,24 +24,34 @@
     }
   }
   .product-info{
-    margin-top:20px;
     h1{
       @include custom-font(30px,600,$text-color,1px);
       margin-bottom:0;
     }
     .select-wrapper{
       margin:12px 0px;
-      select{
-        width:35px;
+      span{
+        padding:10px;
+        cursor:pointer;
+        &.quantityselected{
+          background-color:$first-color;
+          color:white;
+        }
       }
     }
     button{
       border:none;
       padding:12px 45px;
-      background:$first-color;
-      @include custom-font(16px,600,white);
+      border:solid 2px $first-color;
+      background-color:white;
+      @include custom-font(16px,600,$first-color);
       display:block;
       cursor:pointer;
+      margin-left:auto;
+      &:hover{
+        background-color:$first-color;
+        color:white;
+      }
       &:focus{
         outline:none;
       }
@@ -53,13 +65,17 @@
       &.price{
         @include custom-font(19px,500,gray,1px);
       }
+      &.inf{
+        @include custom-font(14px,500,gray,1px);
+      }
     }
   }
   .product-image{
     img{
       display:block;
-      margin:0 auto;
-      width: 100%;
+      max-width: 100%;
+      max-height: 400px;
+      margin: 0 auto;
     }
   }
 }

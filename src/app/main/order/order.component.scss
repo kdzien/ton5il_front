@@ -1,0 +1,90 @@
+@import '../../mixins.scss';
+@import '../../variables.scss';
+
+#order{
+  margin-top:35px;
+  background-color:white;
+  padding:25px;
+  .title{
+    @include custom-font(20px, 600);
+    letter-spacing:1px;
+    margin-top:15px;
+    padding-bottom:25px;
+    text-align:center;
+    border-bottom: 2px solid #f5f5f5;
+  }
+  .order-section-title{
+    @include custom-font(20px, 400);
+    letter-spacing:-1px;
+    margin-bottom:15px;
+  }
+  #shipping, #payments, #final-order{
+    padding:20px 0px;
+    form{
+      .full-width{
+        grid-column: 1 / 3 ;
+      }
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      grid-column-gap: 5px;
+      grid-row-gap: 5px;
+      input,select{
+        border:solid 1px #f5f5f5;
+        padding:10px;
+        @include custom-font(14px, 400);
+        &::-webkit-input-placeholder {
+          color:gray;
+        }
+      }
+    }
+  }
+  #final-order{
+    .summary{
+      padding:20px;
+      background-color:#f5f5f5;
+      div{
+        display: flex;
+        justify-content: space-between;
+        &.final-order{
+          font-size:20px;
+          margin:10px 0px;
+        }
+      }
+      button{
+        border:none;
+        background-color:$text-color;
+        padding:15px 0px;
+        width:100%;
+        @include custom-font(14px,600,white);
+        letter-spacing:1px;
+      }
+    }
+    section{
+      border: solid 1px #f5f5f5;
+    }
+    ul{
+      @include custom-list();
+      padding:20px;
+      li{
+        display:flex;
+        @include custom-font(13px, 600);
+        .image{
+          flex-basis:15%;
+          img{
+            max-width:100%;
+            max-height:60px;
+            margin:0 auto;
+            display:block;
+          }
+        }
+        .name{
+          flex-basis:65%;
+        }
+        .total{
+          text-align:right;
+          flex-basis:20%;
+        }
+      }
+    }
+  }
+}

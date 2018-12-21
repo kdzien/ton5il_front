@@ -8,6 +8,7 @@ import { CategoryComponent } from './main/category/category.component';
 import { NewsComponent } from './main/news/news.component';
 import { ProductComponent } from './main/product/product.component';
 import { FindComponent } from './main/find/find.component';
+import { OrderComponent } from './main/order/order.component';
 
 export const routes: Routes = [
   // { path: '', component: AppComponent, canActivate: [LoginGuard]},
@@ -20,8 +21,9 @@ export const routes: Routes = [
           {path: 'category/:id', component: CategoryComponent},
           {path: 'find/:text', component: FindComponent}
         ]},
-      {path: 'product/:id', component: ProductComponent}
-      {path: 'cart', component: BasketComponent}
+      {path: 'product/:id', component: ProductComponent},
+      {path: 'cart', component: BasketComponent},
+      {path: 'order', component: OrderComponent},
     ]
   },
   { path: '**', component: PageNotFoundComponent }

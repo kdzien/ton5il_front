@@ -1,5 +1,64 @@
+@import '../../variables.scss';
+@import '../../mixins.scss';
+
+
 .main{
-  background-color:white;
-  margin-bottom:15px;
-  padding:15px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  .news, .bestsellers{
+    ul{
+      @include custom-list();
+      li{
+        position:relative;
+        height:120px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align:right;
+        background-size:170px !important;
+        @include custom-font(13px,400);
+        span{
+          font-weight:700;
+        }
+        margin-bottom:10px;
+        &:first-child{
+          height:60px;
+          text-align:center;
+          background-color:lighten($color: $first-color, $amount: 10%);
+          @include custom-font(22px,400,white)
+        }
+        .li-content{
+          width: max-content;
+          text-align: center;
+          margin-left: auto;
+          background-color: rgba(0,0,0,0.5);
+          padding: 4px 20px;
+          color: white;
+          z-index:9;
+          &:hover{
+            cursor:pointer;
+          }
+        }
+        &:not(:first-child){
+          &:after{
+            content:"";
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:100%;
+            height:100%;
+            background-color:rgba(0,0,0,0.2);
+          }
+          &:hover{
+            &:after{
+              transition:0.2s;
+              cursor:pointer;
+              background-color:transparentize($color: $first-color, $amount: 0.3)
+            }
+          }
+        }
+      }
+    }
+  }
 }

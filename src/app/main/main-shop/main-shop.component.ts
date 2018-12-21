@@ -11,7 +11,6 @@ import {Router} from '@angular/router';
 })
 export class MainShopComponent implements OnInit {
   private categories: Array<Category>;
-  private find_phrase = '';
   constructor(private shopApi: ShopApiService, private router: Router) { }
   ngOnInit() {
     this.shopApi.getCategories().subscribe(categories => {
@@ -20,7 +19,5 @@ export class MainShopComponent implements OnInit {
       console.log(err);
     });
   }
-  findInShop() {
-    this.router.navigate(['/shop/find', this.find_phrase]);
-  }
+
 }

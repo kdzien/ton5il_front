@@ -1,0 +1,22 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+#popup{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background-color:white;
+  text-align:center;
+  @each $class, $color in $alert-colors {
+    &.#{$class} {
+      font-size:700;
+      background-color:$color;
+      @include custom-font(13px, 400, whitesmoke, 0.5px);
+    }
+  }
+  .popup-info{
+    padding:13px;
+    min-width:270px;
+    max-width:300px;
+  }
+}

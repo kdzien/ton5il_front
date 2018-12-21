@@ -7,7 +7,7 @@ import { BasketComponent } from './main/basket/basket.component';
 import { LoginComponent } from './main/login/login.component';
 import { RegisterComponent } from './main/register/register.component';
 import { ShopComponent } from './main/shop/shop.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './main/page-not-found/page-not-found.component';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -18,6 +18,8 @@ import { NewsComponent } from './main/news/news.component';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { FindComponent } from './main/find/find.component';
 import { ClickOutsideModule } from 'ng4-click-outside';
+import { OrderComponent } from './main/order/order.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +34,14 @@ import { ClickOutsideModule } from 'ng4-click-outside';
     CategoryComponent,
     NewsComponent,
     OrderByPipe,
-    FindComponent
+    FindComponent,
+    OrderComponent,
+    PopUpComponent
   ],
   imports: [
     ClickOutsideModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(

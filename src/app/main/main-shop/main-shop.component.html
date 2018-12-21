@@ -1,17 +1,10 @@
 <section class="row">
   <aside class="col-lg-3 col-md-12">
-    <section id="finder">
-      <div class="aside-header">SEARCH</div>
-      <form class="f-i" (ngSubmit)="findInShop()">
-        <input [(ngModel)]='find_phrase' name="find_phrase" placeholder="Search in shop" />
-        <button type="submit"><i  class="fas fa-search" ></i></button>
-      </form>
-    </section>
     <nav>
-      <div class="aside-header">PRODUCT CATEGORIES</div>
       <ul>
+      <li><div class="aside-header">CATEGORIES</div></li>
         <li *ngFor="let category of categories" [routerLink]="['/shop/category', category._id]" routerLinkActive="active"
-        routerLinkActive="active-category">{{category.name}}</li>
+        routerLinkActive="active-category">{{category.name}} ({{category.count}})</li>
       </ul>
     </nav>
   </aside>

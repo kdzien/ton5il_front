@@ -14,7 +14,7 @@ export class CategoryComponent implements OnInit {
   private products: Array<Product>;
   private currentCategory: Category;
   private currentSort = 'up';
-  private currentViewStyle = '1fr 1fr 1fr';
+  private currentViewStyle = '';
   constructor(private route: ActivatedRoute, private shopApi: ShopApiService) { }
 
   ngOnInit() {

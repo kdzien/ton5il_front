@@ -1,30 +1,33 @@
 <section class="row"  id="cart">
   <div class="col-md-12">
     <div class="title">YOUR CART</div>
-    <ul>
-      <li class="product" >
-        <div class="name-title">Product</div>
-        <div class="price-title">Price</div>
-        <div class="quantity-title">Quantity</div>
-        <div class="total-title">Total</div>
-      </li>
-      <li class="product" *ngFor="let product of products">
-        <div class="image"><img src="{{product.img_src}}" /></div>
-        <div class="name">{{product.name | uppercase}}</div>
-        <div class="price">${{product.price}}</div>
-        <div class="quantity">
-          <select>
-            <option>1</option>
-          </select>
-        </div>
-        <div class="remove"><span><i class="far fa-trash-alt"></i> remove</span></div>
-        <div class="total">${{product.price}}</div>
-      </li>
+    <div class="no-items" *ngIf="basket.products.length==0"> You have no items in your cart </div>
+    <div *ngIf="basket.products.length>0">
+      <ul>
+        <li class="product" >
+          <div class="name-title">Product</div>
+          <div class="price-title">Price</div>
+          <div class="quantity-title">Quantity</div>
+          <div class="total-title">Total</div>
+        </li>
+        <li class="product" *ngFor="let product of basket.products, let i = index">
+          <div class="image"><img src="{{product.img_src}}" /></div>
+          <div class="name">{{product.name | uppercase}}</div>
+          <div class="price">{{product.price | currency}}</div>
+          <div class="quantity">
+            <select>
+              <option>{{product.quantity_select}}</option>
+            </select>
+          </div>
+          <div class="remove" (click)="removeItem(i)"><span><i class="far fa-trash-alt"></i> remove</span></div>
+          <div class="total">{{product.price*product.quantity_select | currency}}</div>
+        </li>
 
-    </ul>
-    <div class="summary">
-      <div class="total"><span>Subtotal</span> <span>100$</span></div>
-      <button>ORDER</button>
+      </ul>
+      <div class="summary">
+        <div class="total"><span>Subtotal </span> <span> {{basket.total_price | currency}}</span></div>
+        <button [routerLink]="['/shop/order']">ORDER</button>
+      </div>
     </div>
   </div>
 </section>

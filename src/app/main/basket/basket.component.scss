@@ -13,6 +13,10 @@
     text-align:center;
     border-bottom: 2px solid whitesmoke;
   }
+  .no-items{
+    padding: 10px;
+    text-align: center;
+  }
   ul{
     width:100%;
     @include custom-list();
@@ -38,7 +42,7 @@
       .image{
         img{
           max-height: 100px;
-          width: auto;
+          max-width: 100%;
           display: block;
           margin: 0 auto;
         }
@@ -59,9 +63,11 @@
       .remove{
         color:gray;
         font-size:13px;
-        &:hover{
-          color:red;
-          cursor:pointer;
+        span{
+          &:hover{
+            color:red;
+            cursor:pointer;
+          }
         }
       }
       .total{
@@ -76,6 +82,11 @@
       justify-content: space-between;
       margin-bottom:15px;
       @include custom-font(22px,400)
+      span{
+        &:first-child{
+          margin-right:10px;
+        }
+      }
     }
     button{
       border:none;
@@ -83,6 +94,7 @@
       padding:15px 60px;
       @include custom-font(14px,600,white);
       letter-spacing:1px;
+      float:right;
     }
   }
 }

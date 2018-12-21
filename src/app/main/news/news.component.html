@@ -1,6 +1,18 @@
-<section class="main">
-  Promotions
-</section>
-<section class="main">
-  BestSellers
-</section>
+<div class="main">
+  <section class="bestsellers">
+    <ul>
+      <li>BESTSELLERS</li>
+      <li [routerLink]="['/shop/product', bs._id]" *ngFor="let bs of bestsellers" [ngStyle]="{'background': 'url('+bs.img_src+') no-repeat center '}">
+        <div class="li-content">{{bs.name}}<br><span>{{bs.price | currency}}</span></div>
+      </li>
+    </ul>
+  </section>
+  <section class="news">
+    <ul>
+      <li>NEWS</li>
+      <li [routerLink]="['/shop/product', new._id]" *ngFor="let new of news" [ngStyle]="{'background': 'url('+new.img_src+') no-repeat center'}">
+        <div class="li-content">{{new.name}}<br><span>{{new.price | currency}}</span></div>
+      </li>
+    </ul>
+  </section>
+</div>

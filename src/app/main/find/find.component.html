@@ -1,25 +1,26 @@
 <div class="category-panel">
-  <h1>Wyszukiwana fraza: {{find_phrase}}</h1>
-  <ul>
-    <li>
-      <select [(ngModel)]="currentSort">
-        <option [ngValue]="'up'">Cena rosnąco</option>
-        <option [ngValue]="'down'">Cena malejąco</option>
-      </select>
-    </li>
-    <li (click)="currentViewStyle='1fr'"><i class="fas fa-bars"></i></li>
-    <li (click)="currentViewStyle='1fr 1fr 1fr'"><i class="fas fa-th"></i></li>
+<h1>Wyszukiwana fraza: {{find_phrase}}</h1>
 
-  </ul>
+<ul *ngIf="products?.length!=0">
+  <li>
+    <select [(ngModel)]="currentSort">
+      <option [ngValue]="'up'">Cena rosnąco</option>
+      <option [ngValue]="'down'">Cena malejąco</option>
+    </select>
+  </li>
+  <li (click)="currentViewStyle='one-line'"><i class="fas fa-bars"></i></li>
+  <li (click)="currentViewStyle=''"><i class="fas fa-th"></i></li>
+</ul>
+
 </div>
-    <div id="products-wrapper" [style.grid-template-columns]='currentViewStyle'>
-      <p *ngIf="products?.length==0">Aktualnie brak produktów w tym wyszukiwaniu</p>
-      <article class="product" *ngFor="let product of products | orderBy:currentSort" [routerLink] = "['/shop/product', product._id]">
-        <div class="sale">SALE</div>
-        <div class="img"><img src="{{product.img_src}}"/></div>
-        <div class="product-info">
-          <div class="price">${{product.price}}</div>
-          <div class="title">{{product.name}}</div>
-        </div>
-      </article>
+<p *ngIf="products?.length==0">Aktualnie brak produktów w tym wyszukiwaniu</p>
+<div id="products-wrapper" [ngClass]='currentViewStyle'>
+  <article class="product" *ngFor="let product of products | orderBy:currentSort" [routerLink] = "['/shop/product', product._id]">
+    <!-- <div class="sale">SALE</div> -->
+    <div class="img"><img src="{{product.img_src}}"/></div>
+    <div class="product-info">
+      <div class="price">${{product.price}}</div>
+      <div class="title">{{product.name}}</div>
     </div>
+  </article>
+</div>

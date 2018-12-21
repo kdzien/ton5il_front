@@ -7,7 +7,6 @@ import { Product } from '../models/Product';
 export class OrderByPipe implements PipeTransform {
 
   transform(products: Array<Product>, args?: any): any {
-    console.log(args)
     if (products) {
       products.sort((a: any, b: any) => {
         if (a.price < b.price) {

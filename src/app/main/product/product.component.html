@@ -1,21 +1,18 @@
 <section class="row">
-  <a (click)="previousPage()" class="previous-page">Wróć do poprzedniej strony</a>
   <article class="col-lg-12" id="product">
-  <!-- <i  class="fas fa-arrow-left previous-page"></i> -->
+  <!-- <i (click)="previousPage()" class="fas fa-chevron-left previous-page"></i> -->
     <div class="row">
       <section class="col-lg-4 product-image">
         <img src="{{product?.img_src}}"/>
       </section>
       <section class="col-lg-8 product-info">
         <h1>{{product?.name | uppercase }}</h1>
-        <p class="price">${{product?.price}}</p>
-        <p>Producer: {{product?.producer}}</p>
-        <p>Condition: {{product?.condition}}</p>
-        <p>Quantity: {{product?.quantity}}</p>
-        <div class="select-wrapper">Qty:
-          <select>
-            <option>1</option>
-          </select>
+        <p class="price">{{product?.price | currency}}</p>
+        <p class="inf">Producer: {{product?.producer}}</p>
+        <p class="inf">Condition: {{product?.condition}}</p>
+        <p class="inf">Available: {{product?.quantity}}</p>
+        <div class="select-wrapper">Select quantity:
+          <span [ngClass]="{'quantityselected' : quantity_selected == i+1}" *ngFor="let quantity of quantities, let i = index" (click)="selectQuantity(i)">{{quantity}}</span>
         </div>
         <button (click)="addProduct()">ADD TO CART</button>
 
